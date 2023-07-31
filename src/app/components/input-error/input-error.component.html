@@ -1,0 +1,17 @@
+<div class="h-7">
+  <ng-container *ngIf="control.touched && control.errors">
+    <p
+      *ngIf="control.hasError('required')"
+      class="pt-2 pl-2 text-xs text-danger-600"
+    >
+      Is required
+    </p>
+    <p
+      *ngIf="control.hasError('email')"
+      class="pt-2 pl-2 text-xs text-danger-600"
+    >
+      Not a valid email address
+    </p>
+    <p *ngIf="control.hasError('minlength')">mínimo {{ control.errors['minlength'].requiredLength }} caracteres</p>
+  </ng-container>
+</div>

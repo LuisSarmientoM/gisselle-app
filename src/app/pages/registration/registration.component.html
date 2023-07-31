@@ -1,0 +1,38 @@
+<app-layout>
+    <div class="mx-auto w-80">
+        <h1 class="mb-0">Registro de máquina</h1>
+        <p class="mb-4 text-sm">Rellene el siguiente formulario</p>
+        <form class="flex flex-col gap-1" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <label>
+            <span class="text-sm">Maquina</span>
+            <input
+              type="text"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+              formControlName="name"
+            />
+          </label>
+          <label>
+            <span class="text-sm">Aceite</span>
+            <input
+              type="text"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+              formControlName="oil"
+            />
+          </label>
+          <label>
+            <span class="text-sm">Combustible (galones)</span>
+            <input
+              type="number"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+              formControlName="gas"
+            />
+          </label>
+          <div class="flex gap-4 mt-4">
+              <button class="btn accent" type="button">cancelar</button>
+              <button class="flex-auto btn">Guardar</button>
+
+          </div>
+
+        </form>
+    </div>
+</app-layout>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gisselle-app": {
+      "hosting": {
+        "frontend": [
+          "gisselle-app"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gisselle-app"
+  }
+}
