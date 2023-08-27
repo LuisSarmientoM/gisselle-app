@@ -12,7 +12,8 @@
       "schematics": {
         "@schematics/angular:component": {
           "inlineStyle": true,
-          "skipTests": true
+          "skipTests": true,
+          "skipImport": true
         }
       },
       "root": "",
@@ -32,6 +33,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/manifest.webmanifest",
               "src/manifest.webmanifest"
             ],
             "styles": [
@@ -47,7 +49,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -97,6 +99,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/manifest.webmanifest",
               "src/manifest.webmanifest"
             ],
             "styles": [
@@ -108,7 +111,7 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
-            "version": 1,
+            "version": 2,
             "browserTarget": "frontend:build:production"
           }
         }

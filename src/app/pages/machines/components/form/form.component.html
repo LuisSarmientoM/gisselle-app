@@ -1,0 +1,34 @@
+<app-layout>
+    <form class="flex flex-col gap-1 p-4 pt-6" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="relative z-0">
+            <input type="email" id="email"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+                placeholder=" " formControlName="name" />
+            <label for="email"
+                class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre</label>
+            <app-input-error [control]="form.controls.name"></app-input-error>
+        </div>
+        <div class="relative z-0">
+            <input type="email" id="email"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+                placeholder=" " formControlName="oil" />
+            <label for="email"
+                class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Aceite</label>
+            <app-input-error [control]="form.controls.oil"></app-input-error>
+        </div>
+        <div class="relative z-0">
+            <input type="email" id="email"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+                placeholder=" " formControlName="gas" />
+            <label for="email"
+                class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Combustible</label>
+            <app-input-error [control]="form.controls.gas"></app-input-error>
+        </div>
+        <div class="flex gap-4 mt-4">
+            <button class="btn white" type="button" (click)="navigate()">
+                cancelar
+            </button>
+            <button class="flex-auto btn">Guardar</button>
+        </div>
+    </form>
+</app-layout>

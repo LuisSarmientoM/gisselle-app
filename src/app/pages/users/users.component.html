@@ -1,0 +1,6 @@
+<app-layout>
+    <a routerLink="formulario" class="block w-full py-2 text-center transition-colors rounded bg-primary">Agregar
+        nuevo</a>
+    <app-user-card *ngFor="let user of users" [user]="user">
+    </app-user-card>
+</app-layout>

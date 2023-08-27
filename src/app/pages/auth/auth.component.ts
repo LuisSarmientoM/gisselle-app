@@ -18,16 +18,16 @@ export default class AuthComponent {
       'lsarmientom010@gmail.com',
       [Validators.email, Validators.required],
     ],
+    // 2fd80e30
     password: ['2fd80e30', [Validators.required, Validators.minLength(8)]],
   });
   constructor(
     private readonly fb: FormBuilder,
     private readonly authService: AuthService
-  ) {}
+  ) { }
 
   onSubmit(): void {
     this.form.markAsTouched();
-    console.log(this.form.value);
     if (this.form.invalid) return;
     this.authService.login(this.form.getRawValue());
   }

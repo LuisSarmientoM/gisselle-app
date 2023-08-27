@@ -15,13 +15,11 @@ import { ButtonCloseComponent } from '@components/buttons/close/close.component'
   imports: [ButtonCloseComponent],
 })
 export class ModalComponent implements OnInit {
-  @ViewChild('modal', { static: true }) modalView$!: ElementRef;
-  closing = false;
   constructor(
     private dialogRef: DialogRef,
     @Inject(DIALOG_DATA)
-    public formData: { message: string; icon?: string }
-  ) {}
+    public data: { message: string; icon?: string }
+  ) { }
 
   ngOnInit(): void {
     this;

@@ -1,0 +1,57 @@
+<app-layout>
+    <form class="flex flex-col gap-1 p-4 pt-6" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="relative z-0">
+            <input type="text" id="name"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer bg-transparent"
+                placeholder=" " formControlName="name" />
+            <label for="name"
+                class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre</label>
+            <app-input-error [control]="form.controls.name"></app-input-error>
+        </div>
+        <div class="relative z-0">
+            <input type="email" id="email"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+                placeholder=" " formControlName="email" />
+            <label for="email"
+                class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Correo</label>
+            <app-input-error [control]="form.controls.email"></app-input-error>
+        </div>
+        <div class="relative z-0">
+            <input type="password" id="password"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+                placeholder=" " formControlName="password" />
+            <label for="password"
+                class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Contraseña</label>
+            <app-input-error [control]="form.controls.password"></app-input-error>
+        </div>
+        <div class="relative z-0">
+            <select
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+                id="role" formControlName="role">
+                <option value="" disabled selected class="text-danger-500">
+                    Selecciona un rol
+                </option>
+                <option value="admin">Administrador</option>
+                <option value="user">Usuario</option>
+            </select>
+            <label for="role" class="sr-only">Rol</label>
+        </div>
+
+        <div>
+            <label class="relative inline-flex items-center mb-5 cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer" formControlName="active" />
+                <div
+                    class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary peer-focus:ring-opacity-60 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary">
+                </div>
+                <span class="ml-3 text-sm font-medium text-gray-900">Usuario activo</span>
+            </label>
+        </div>
+        <div class="flex gap-4 mt-4">
+            <button class="btn white" type="button" (click)="navigate()">
+                cancelar
+            </button>
+            <button class="flex-auto btn">Guardar</button>
+        </div>
+    </form>
+</app-layout>

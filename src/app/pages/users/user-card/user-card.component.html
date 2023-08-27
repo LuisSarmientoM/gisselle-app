@@ -1,0 +1,23 @@
+<article class="flex items-center justify-between p-4 mb-4 bg-white shadow-md">
+    <div>
+        <h2>
+            <span class="inline-block w-3 h-3 mr-2 rounded-full"
+                [ngClass]="{'bg-secondary': user.active, 'bg-gray-400': !user.active}"></span>
+            <span>{{ user.name }}</span>
+
+        </h2>
+        <div class="flex gap-4 text-sm">
+            <p>
+                Correo
+                <span class="block text-xs text-[#767676]">{{user.email}}</span>
+            </p>
+            <p>
+                Rol
+                <span class="block text-xs text-[#767676]">{{user.role}}</span>
+            </p>
+        </div>
+    </div>
+    <div>
+        <a [routerLink]="['formulario', user.uid]" class="btn accent">Editar</a>
+    </div>
+</article>

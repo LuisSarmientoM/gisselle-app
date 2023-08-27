@@ -1,0 +1,8 @@
+<div class="fixed flex flex-col w-full max-w-xs gap-4 p-4 overflow-y-auto rounded-lg max-h-52 right-5 bottom-5"
+  role="alert" style="scrollbar-gutter: stable ;">
+  <div *ngFor="let toast of currentToasts; index as i">
+    <app-toast [type]="toast.type" [title]="toast.title" [message]="toast.message"
+      (disposeEvent)="dispose(i)"></app-toast>
+  </div>
+
+</div>

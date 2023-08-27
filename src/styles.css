@@ -2,20 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './styles/tippy.css';
 @import "@angular/cdk/overlay-prebuilt.css";
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
 
 body {
     /* @apply bg-gray-100; */
+    @apply h-screen bg-[#EDEDED];
 }
 h1 {
     @apply mb-4 text-2xl font-bold text-gray-900;
 }
+h2 {
+    @apply text-xl font-bold text-gray-900;
+}
 .btn {
-    @apply px-4 py-2 font-bold text-white rounded bg-primary-500 hover:bg-primary-700;
+    @apply px-4 py-2 font-medium transition-colors rounded bg-primary hover:shadow-md;
 }
 .btn.accent {
-    @apply bg-accent-500;
+    @apply text-white bg-secondary;
 }
+.btn.white {
+    @apply text-gray-800 bg-white border border-gray-800 hover:bg-gray-200;
+}
+
 .fade {
     @apply animate-fade animate-ease-linear animate-duration-300;
+}
+
+@layer base {
+    :root {
+        --color-primary: 255 217 102;
+
+        --color-secondary: 2 125 255;        
+    }
+    html {
+        font-family: 'Inter', system-ui, sans-serif;
+    }
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

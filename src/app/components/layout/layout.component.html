@@ -1,8 +1,36 @@
-<nav class="fixed top-0 z-40 w-full bg-primary-400">
+<div class="grid grid-rows-[112px,1fr,45px] min-h-screen">
+    <header class="z-10">
+        <ng-container *ngFor="let config of uiService.toolbarConfig">
+            <ng-container *ngIf="config.type === 'title'">
+                <div class="fixed w-full py-8 text-center bg-white shadow-lg">
+                    <h1 class="container mx-auto text-[#001F3F]">{{ config.text }}</h1>
+                </div>
+            </ng-container>
+        </ng-container>
+    </header>
+    <main class="container h-full mx-auto">
+        <ng-content></ng-content>
+    </main>
+    <nav class="w-full max-w-lg mx-auto">
+        <app-navigation></app-navigation>
+    </nav>
+
+</div>
+
+
+<!-- <nav class="fixed top-0 z-40 w-full bg-primary">
     <div class="p-3 lg:px-5 lg:pl-3">
-        <div class="flex items-center justify-end">
+        <div class="flex items-center">
+            <div class="md:ml-64">
+                <ng-container *ngFor="let config of uiService.toolbarConfig">
+                    <ng-container *ngIf="config.type === 'title'">
+                        <h1 class="mb-0 text-white">{{ config.text }}</h1>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <span class="flex-1"></span>
             <button (click)="uiService.toggleSidebar()" aria-controls="logo-sidebar" type="button"
-                class="inline-flex items-center p-2 text-sm rounded-lg cursor-pointer text-accent-500 md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                class="inline-flex items-center p-2 text-sm border rounded-lg cursor-pointer border-secondary text-secondaborder-secondary md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 place-self-end hover:text-gray-800 hover:border-gray-800">
                 <span class="sr-only">Open sidebar</span>
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
@@ -15,21 +43,17 @@
     </div>
 </nav>
 <aside
-    class="fixed inset-0 z-50 w-64 py-4 transition-transform duration-500 -translate-x-full bg-white shadow-md inset-x-full sidebar md:inset-x-0 rounded-s-3xl md:rounded-e-3xl md:rounded-s-none"
+    class="fixed inset-0 z-50 w-64 h-full py-4 transition-transform duration-500 -translate-x-full bg-white shadow-md inset-x-full sidebar md:inset-x-0 rounded-s-3xl md:rounded-e-3xl md:rounded-s-none md:translate-x-0"
     [ngClass]="{ 'translate-x-0': uiService.getSidebar() | async }">
     <div class="flex flex-col h-full px-3 overflow-y-auto">
-        <div class="place-self-end">
-            <app-button-close (onClick)="uiService.toggleSidebar()"></app-button-close>
-        </div>
-        <nav class="flex flex-col flex-1 [&>a]:border-b-2 [&>a]:p-2 [&>a]:transition-colors">
-            <a routerLink="/" class="hover:bg-primary-200">Inicio</a>
-            <a routerLink="/maquinas" class="hover:bg-primary-200">Maquinas</a>
-            <a href="" class="hover:bg-primary-200">Usuarios</a>
-        </nav>
+        <app-button-close class="place-self-end md:hidden" (onClick)="uiService.toggleSidebar()"></app-button-close>
+        <app-navigation></app-navigation>
+        <span class="flex-1"></span>
+        <app-navigation-footer></app-navigation-footer>
     </div>
 </aside>
-<div drawer-backdrop="" class="fixed inset-0 z-40 bg-gray-900 bg-opacity-80 lg:hidden"
-    *ngIf="!(uiService.getSidebar() | async)" (click)="uiService.toggleSidebar()"></div>
-<div class="p-4 mt-14 sm:ml-64">
+<div class="fixed inset-0 z-40 bg-gray-900 bg-opacity-80 md:hidden" *ngIf="!(uiService.getSidebar() | async)"
+    (click)="uiService.toggleSidebar()"></div>
+<div class="p-4 mt-14 md:ml-64">
     <ng-content></ng-content>
-</div>
+</div> -->

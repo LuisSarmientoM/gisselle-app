@@ -1,38 +1,76 @@
 <app-layout>
-    <div class="mx-auto w-80">
-        <h1 class="mb-0">Registro de máquina</h1>
-        <p class="mb-4 text-sm">Rellene el siguiente formulario</p>
-        <form class="flex flex-col gap-1" [formGroup]="form" (ngSubmit)="onSubmit()">
-          <label>
-            <span class="text-sm">Maquina</span>
-            <input
-              type="text"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-              formControlName="name"
-            />
-          </label>
-          <label>
-            <span class="text-sm">Aceite</span>
-            <input
-              type="text"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-              formControlName="oil"
-            />
-          </label>
-          <label>
-            <span class="text-sm">Combustible (galones)</span>
-            <input
-              type="number"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-              formControlName="gas"
-            />
-          </label>
-          <div class="flex gap-4 mt-4">
-              <button class="btn accent" type="button">cancelar</button>
-              <button class="flex-auto btn">Guardar</button>
-
-          </div>
-
-        </form>
-    </div>
+  <div class="mx-auto w-80">
+    <h1 class="mb-0">Registro de máquina</h1>
+    <p class="mb-4 text-sm">Rellene el siguiente formulario</p>
+    <form class="flex flex-col gap-1" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="relative z-0">
+        <select
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+          formControlName="id" id="equipo">
+          <option value="" disabled selected class="text-danger-500">Selecciona una máquina</option>
+          <option [value]="item.id" *ngFor="let item of machines">
+            {{ item.name }}
+          </option>
+        </select>
+        <label for="equipo" class="sr-only">Equipo</label>
+      </div>
+      <div class="relative z-0">
+        <input type="text" id="horometroAnterior" placeholder=" "
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+          formControlName="horometroAnterior" />
+        <label for="horometroAnterior"
+          class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Horometro
+          Anterior</label>
+        <app-input-error [control]="form.controls.horometroAnterior"></app-input-error>
+      </div>
+      <div class="relative z-0">
+        <input type="text" id="horometroActual" placeholder=" "
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+          formControlName="horometroActual" />
+        <label for="horometroActual"
+          class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Horometro
+          Actual</label>
+        <app-input-error [control]="form.controls.horometroActual"></app-input-error>
+      </div>
+      <div class="relative z-0">
+        <input type="text" id="horasTrabajadas" placeholder=" "
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+          formControlName="horasTrabajadas" />
+        <label for="horasTrabajadas"
+          class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Horas
+          Trabajadas</label>
+        <app-input-error [control]="form.controls.horasTrabajadas"></app-input-error>
+      </div>
+      <div class="relative z-0">
+        <input type="text" id="galones" placeholder=" "
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+          formControlName="galones" />
+        <label for="galones"
+          class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Galones</label>
+      </div>
+      <app-input-error [control]="form.controls.galones"></app-input-error>
+      <div class="relative z-0">
+        <textarea id="notas" placeholder=" "
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+          formControlName="notas"></textarea>
+        <label for="notas"
+          class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Notas</label>
+      </div>
+      <app-input-error [control]="form.controls.notas"></app-input-error>
+      <div class="relative z-0">
+        <input type="text" id="galonesHora" placeholder=" "
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-secondary peer"
+          formControlName="galonesHora" />
+        <label for="galonesHora"
+          class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Galones/Hora</label>
+      </div>
+      <app-input-error [control]="form.controls.galonesHora"></app-input-error>
+      <div class="flex gap-4 mt-4">
+        <button class="btn white" type="button" (click)="navigate()">
+          cancelar
+        </button>
+        <button class="flex-auto btn">Guardar</button>
+      </div>
+    </form>
+  </div>
 </app-layout>

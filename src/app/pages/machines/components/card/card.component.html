@@ -1,0 +1,18 @@
+<article class="bg-white p-4 flex items-center justify-between mb-4 shadow-md">
+    <div>
+        <h2>{{ machine.name }}</h2>
+        <div class="flex gap-4 text-sm">
+            <p>
+                Combustible
+                <span class="block text-xs text-[#767676]">{{machine.gas}}gal</span>
+            </p>
+            <p>
+                Aceite
+                <span class="block text-xs text-[#767676]">{{machine.oil}}gal</span>
+            </p>
+        </div>
+    </div>
+    <div>
+        <a [routerLink]="['formulario', machine.id]" class="btn accent">Editar</a>
+    </div>
+</article>

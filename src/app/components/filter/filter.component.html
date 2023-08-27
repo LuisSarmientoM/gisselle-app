@@ -1,0 +1,18 @@
+<div class="relative flex gap-4">
+    <button (click)="searchVisible = !searchVisible" class="p-2 rounded-full shadow-md">
+        <svg *ngIf="!searchVisible" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor" class="inline w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+        </svg>
+        <svg *ngIf="searchVisible" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+    <div class="h-[42px] transition-all absolute left-11" [ngClass]="{'opacity-0': !searchVisible}">
+        <input type="text" value=""
+            class="block text-sm text-gray-900 p-2.5 transition-all border border-gray-300 rounded-lg shadow-sm bg-gray-50"
+            [ngClass]="{'w-0 invisible': !searchVisible, 'w-48 visible': searchVisible}">
+    </div>
+</div>
