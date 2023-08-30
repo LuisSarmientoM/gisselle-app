@@ -24,9 +24,9 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: 'maquinas/formulario/:id',
-    loadComponent: () => import('./pages/machines/components/form/form.component'),
-    title: 'Formulario de Maquinas',
+    path: 'maquinas',
+    component: MachinesComponent,
+    title: 'Maquinas',
     canActivate: [authGuard],
   },
   {
@@ -36,9 +36,15 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: 'maquinas',
-    component: MachinesComponent,
-    title: 'Maquinas',
+    path: 'maquinas/:id/formulario',
+    loadComponent: () => import('./pages/machines/components/form/form.component'),
+    title: 'Formulario de Maquinas',
+    canActivate: [authGuard],
+  },
+  {
+    path: 'maquinas/:id',
+    loadComponent: () => import('./pages/machines/detail/detail.component'),
+    title: 'Formulario de Maquinas',
     canActivate: [authGuard],
   },
   {

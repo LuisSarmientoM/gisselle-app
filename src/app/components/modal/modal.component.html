@@ -1,14 +1,32 @@
 <div class="relative bg-white rounded-lg shadow fade">
   <div class="flex justify-end">
-    <app-button-close (onClick)="closeDialog()"></app-button-close>
+    <button
+      type="button"
+      class="inline-flex items-center justify-center w-8 h-8 ml-auto text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900"
+      (click)="closeDialog()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+      <span class="sr-only">Close modal</span>
+    </button>
   </div>
   <div class="p-6 pt-0 text-center">
     <h3 class="mb-5 text-lg font-normal text-gray-500">
       {{ data.message }}
     </h3>
 
-    <button type="button" class="btn" (click)="closeDialog()">
-      Aceptar
-    </button>
+    <button type="button" class="btn" (click)="closeDialog()">Aceptar</button>
   </div>
 </div>

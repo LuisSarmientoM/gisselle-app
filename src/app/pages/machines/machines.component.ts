@@ -6,13 +6,9 @@ import { LoadingComponent } from '@components/loading/loading.component';
 import { FilterComponent } from '@components/filter/filter.component';
 import { RouterLink } from '@angular/router';
 import { MachineCardComponent } from './components/card/card.component';
-import { Dialog } from '@angular/cdk/dialog';
-// import { MachineFormComponent } from './components/form/form.component';
 import { UiService } from '@core/services/ui.service';
-import { ToastService } from '@components/toaster/toast.service';
-import { ToasterComponent } from '@components/toaster/toaster.component';
 import { MachinesService } from './machines.service';
-import { NgEventBus } from 'ng-event-bus'
+import { NgEventBus } from 'ng-event-bus';
 @Component({
   selector: 'app-machines',
   templateUrl: './machines.component.html',
@@ -25,7 +21,6 @@ import { NgEventBus } from 'ng-event-bus'
     FilterComponent,
     RouterLink,
     NgClass,
-    ToasterComponent,
     MachineCardComponent
   ],
   providers: [MachinesService],
@@ -34,7 +29,6 @@ export class MachinesComponent implements OnInit {
   private machinesService = inject(MachinesService);
   machines!: Machine[];
   private uiService = inject(UiService);;
-  private toastService = inject(ToastService);
   private eventBus = inject(NgEventBus)
 
   reloading = false;
@@ -67,7 +61,6 @@ export class MachinesComponent implements OnInit {
   }
 
   reload() {
-    this.toastService.showToast('Éxito', 'Se recargaron los equipos');
     this.reloading = true;
     this.machines = [];
     this.getMachines();

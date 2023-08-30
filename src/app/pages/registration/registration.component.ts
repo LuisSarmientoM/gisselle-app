@@ -16,11 +16,8 @@ import { Router } from '@angular/router';
 export class RegistrationComponent implements OnInit {
   form = this.fb.nonNullable.group({
     id: ['', [Validators.required]],
-    horometroAnterior: ['', []],
-    horometroActual: ['', []],
-    horasTrabajadas: ['', []],
-    galones: ['', []],
-    galonesHora: ['', []],
+    horometroActual: ['', [Validators.required]],
+    galones: ['', [Validators.required]],
     notas: ['', []],
   });
   machines: any[] = [];
@@ -46,10 +43,6 @@ export class RegistrationComponent implements OnInit {
     }
   }
   onSubmit(): void {
-    console.log(this.form.valid);
-
-    console.log(this.form.getRawValue());
-
     if (this.form.valid) {
       this.registrationService.save(this.form.getRawValue());
     }

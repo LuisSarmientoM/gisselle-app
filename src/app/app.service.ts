@@ -16,6 +16,7 @@ export class AppService {
     })
   }
   async getMachinesFromServer(resolve: ({ }) => void) {
+    this.machines = [];
     const search = query(this.machinesCollection, orderBy('name', 'asc'),)
     return onSnapshot(search, (snapshot) => {
       snapshot.docChanges().forEach((change) => {

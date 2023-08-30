@@ -1,7 +1,7 @@
 
 import { Injectable, inject } from '@angular/core';
 import {
-  Firestore, addDoc, collection, getDocs, onSnapshot, orderBy, query
+  Firestore, addDoc, collection, doc, getDocs, onSnapshot, orderBy, query, updateDoc
 } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { UiService } from '@core/services/ui.service';
@@ -23,6 +23,9 @@ export class RegistrationService {
     }).then(() => {
       this.uiService.openModal('Registro guardado con exito');
       this.router.navigate(['/inicio'])
+      updateDoc(doc(this.firestore, 'machines', id), {
+        lastHorometer: data.horometroActual
+      })
     }).catch((error) => {
       console.log(error);
     })

@@ -1,35 +1,10 @@
 <!-- <app-toaster></app-toaster> -->
 <app-layout>
-    <a routerLink="formulario" class="block text-center py-2 transition-colors w-full rounded bg-primary">Agregar
-        nuevo</a>
-    <app-machines-card *ngFor="let machine of machines" [machine]="machine">
-    </app-machines-card>
-
-    <!-- <div class="flex items-center gap-4 pb-4 border-b">
-        <button class="btn white" (click)="createNew()">
-            Crear
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="inline w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-
-        </button>
-        <app-filter></app-filter>
-    </div>
-    <ng-container *ngIf="machines; else loading">
-        <div class="grid gap-4 pt-4 md:grid-cols-2 lg:grid-cols-3" *ngIf="machines.length; else noData">
-            <ng-container *ngFor="let machine of machines">
-                <app-machines-card [machine]="machine"></app-machines-card>
-            </ng-container>
-        </div>
-    </ng-container> -->
+  <a
+    routerLink="formulario"
+    class="block text-center py-2 transition-colors w-full rounded bg-primary"
+    >Agregar nuevo</a
+  >
+  <app-machines-card *ngFor="let machine of machines" [machine]="machine">
+  </app-machines-card>
 </app-layout>
-
-
-<!-- <ng-template #loading> -->
-<!-- <app-loading></app-loading> -->
-<!-- </ng-template> -->
-<!-- <ng-template #noData>
-    <p class="p-2 shadow-lg">No se encontraron resultados...</p>
-</ng-template> -->

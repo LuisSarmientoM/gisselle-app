@@ -1,5 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { ButtonCloseComponent } from '@components/buttons/close/close.component';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LayoutComponent } from '@components/layout/layout.component';
 import { UiService } from '@core/services/ui.service';
@@ -11,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-machines-form',
   templateUrl: './form.component.html',
   standalone: true,
-  imports: [ButtonCloseComponent, ReactiveFormsModule, LayoutComponent, InputErrorComponent],
+  imports: [ReactiveFormsModule, LayoutComponent, InputErrorComponent],
   providers: [MachinesService],
 })
 export default class MachineFormComponent implements OnInit {
@@ -20,6 +19,8 @@ export default class MachineFormComponent implements OnInit {
     name: ['', Validators.required],
     oil: ['', Validators.required],
     gas: ['', Validators.required],
+    filter: ['', Validators.required],
+
   });
   paramId = this.route.snapshot.params['id'];
   constructor(

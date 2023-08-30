@@ -17,21 +17,11 @@ import {
 } from '@angular/fire/firestore';
 
 import { environment } from '../environments/environment';
-import {
-  ScreenTrackingService,
-  UserTrackingService,
-} from '@angular/fire/analytics';
+
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { LoadingComponent } from '@components/loading/loading.component';
 import { NgClass } from '@angular/common';
-import {
-  TippyDirective,
-  popperVariation,
-  provideTippyConfig,
-  tooltipVariation,
-  withContextMenuVariation,
-} from '@ngneat/helipopper';
-import { ToasterComponent } from '@components/toaster/toaster.component';
+// import { ToasterComponent } from '@components/toaster/toaster.component';
 import { AppService } from './app.service';
 import { NgEventBus } from 'ng-event-bus';
 import { InputErrorComponent } from '@components/input-error/input-error.component';
@@ -50,8 +40,6 @@ function initializer(appService: AppService): () => Promise<any> {
     BrowserAnimationsModule,
     LayoutComponent,
     LoadingComponent,
-    TippyDirective,
-    ToasterComponent,
     InputErrorComponent,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
@@ -64,27 +52,17 @@ function initializer(appService: AppService): () => Promise<any> {
 
       return firestore;
     }),
-    // ServiceWorkerModule.register('ngsw-worker.js', {
-    //   enabled: !isDevMode(),
-    //   // Register the ServiceWorker as soon as the application is stable
-    //   // or after 30 seconds (whichever comes first).
-    //   registrationStrategy: 'registerWhenStable:30000',
-    // }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
   bootstrap: [AppComponent],
   providers: [
-    ScreenTrackingService,
-    UserTrackingService,
     AppService,
     NgEventBus,
-    provideTippyConfig({
-      defaultVariation: 'tooltip',
-      variations: {
-        tooltip: tooltipVariation,
-        popper: popperVariation,
-        contextMenu: withContextMenuVariation(popperVariation),
-      },
-    }),
     {
       provide: APP_INITIALIZER,
       useFactory: initializer,
